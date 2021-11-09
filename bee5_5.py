@@ -8,7 +8,7 @@ width=400
 height=600
 screen = pygame.display.set_mode((width,height))
   
-#load the images in dict
+
 images={}
 images["bg"] = pygame.image.load("bg.png").convert_alpha()
 images["base"] = pygame.image.load("base.png").convert_alpha()
@@ -74,7 +74,7 @@ while True:
     if groundx< -330:
         groundx=0
         
-    if bee.bee.colliderect(pipe1.topPipe) or bee.bee.colliderect(pipe1.bottomPipe) :
+    if bee.bee.colliderect(pipe1.topPipe) or bee.bee.colliderect(pipe1.bottomPipe) : #Modify the condition so that bee also collides with pipe2
         state="over"
      
     pipe1.move()
@@ -83,6 +83,8 @@ while True:
     bee.display()  
     pipe1.display() 
     pipe2.display() 
+    
+    #Create a play state if block and move relevent functionalities inside it.
     
     if state=="over":
         screen.blit(images["over"],[100,200])
